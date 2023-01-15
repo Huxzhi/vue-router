@@ -6,7 +6,7 @@
     <router-link replace style="margin-left:200px" to="/register">跳转 register</router-link>
 
     <button @click="toPage('Login')">Login</button>
-    <button @click="toPage('Register')">Login</button>
+    <button @click="toDetail(item)">Register</button>
 
 
 
@@ -21,9 +21,31 @@ import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 
+type Item = {
+  name: string,
+  price: number,
+  id: number
+}
+
+const item: Item = {
+  name: 'xiaoman',
+  price: 100,
+  id: 1
+}
+
 const toPage = (url: string) => {
-  router.replace({
-    name: url
+  router.push({
+    name: url,
+    query: item
+  })
+}
+
+const toDetail = (item: Item) => {
+  router.push({
+    name: 'Register',
+    params: {
+      id: item.id
+    }
   })
 }
 </script>

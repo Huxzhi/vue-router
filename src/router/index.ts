@@ -13,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [{
   name: 'Login',//命名式路由模式
   component: () => import('../components/Login.vue') //lazy 懒加载
 }, {
-  path: '/register',
+  path: '/register/:id',
   name: 'Register',
   component: () => import('../components/Register.vue')
 }]
