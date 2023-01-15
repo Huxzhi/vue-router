@@ -10,9 +10,11 @@ import { createRouter, createWebHistory, createWebHashHistory, createMemoryHisto
 // 每个路由都需要映射到一个组件。
 const routes: Array<RouteRecordRaw> = [{
   path: '/',
-  component: () => import('../components/Login.vue') //lazy
+  name: 'Login',//命名式路由模式
+  component: () => import('../components/Login.vue') //lazy 懒加载
 }, {
   path: '/register',
+  name: 'Register',
   component: () => import('../components/Register.vue')
 }]
 
@@ -20,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [{
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes //配置信息
 })
 
 //导出router
