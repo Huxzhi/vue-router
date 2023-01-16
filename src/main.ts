@@ -5,6 +5,7 @@ import router from './router'
 import ElementUi from 'element-plus'
 import 'element-plus/dist/index.css'
 import loadingBarVue from './components/loadingBar.vue'
+import 'animate.css'
 
 console.log(loadingBarVue); //不能直接使用
 const Vnode = createVNode(loadingBarVue) //转成虚拟Dom

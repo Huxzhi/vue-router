@@ -11,6 +11,6 @@ import { ref, reactive } from 'vue'
 
 </script>
 
-<style lang='less' scoped>
+<style lang='less' >
 
 </style>

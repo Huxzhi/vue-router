@@ -58,7 +58,7 @@ const onSubmit = () => {
 }
 </script>
 
-<style lang='less' scoped>
+<style lang='less' >
 .login {
   height: 100%;
   display: flex;
