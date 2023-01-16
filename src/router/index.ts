@@ -1,5 +1,5 @@
 //引入路由对象
-import { createRouter, createWebHistory, createWebHashHistory, createMemoryHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 // 声明类型推断 
 declare module 'vue-router' {
@@ -14,6 +14,26 @@ const routes: Array<RouteRecordRaw> = []
 
 const router = createRouter({
   history: createWebHistory(),
+  //滚动行为
+  scrollBehavior: (to, from, savedPosition) => {
+    // console.log(savedPosition);
+    // if (savedPosition) {
+    //   return savedPosition
+    // } else {
+    //   return {
+    //     top: 0
+    //   }
+    // }
+
+    //支持异步
+    return new Promise((r) => {
+      setTimeout(() => {
+        r({ top: 99999999 })
+      }, 2000);
+    })
+  },
+
+
   routes: [//配置信息
     {
       path: '/',
