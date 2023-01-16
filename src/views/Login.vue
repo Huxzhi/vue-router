@@ -16,12 +16,16 @@
   </div>
 
 </template>
+
+
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import router from '../router';
+// import router from '../router';
 import { ElMessage, FormRules, FormInstance } from 'element-plus'
 import loadingBar from '../components/loadingBar.vue';
+import axios from 'axios'
+const router = useRouter()
 
 const formInline = reactive({
   user: '',
@@ -48,7 +52,9 @@ const onSubmit = () => {
   console.log('submit!', form.value)
   form.value?.validate((validate) => {
     if (validate) {
-      router.push('/index')
+      initRouter()
+
+      // router.push('/index')
       localStorage.setItem('token', '1')
     } else {
       ElMessage.error('请输入完整')
@@ -56,6 +62,36 @@ const onSubmit = () => {
   })
 
 }
+
+/**
+ * 一般是单独的ts页面编写，这里合起来了
+ */
+const initRouter = async () => {
+  const result = await axios.get('http://localhost:9999/login', { params: formInline });
+
+  const data = result.data //连起来不让写
+
+  //要对结果作判断，返回路由还是错误提示
+  if (data.code === 400) {
+    alert(data.mesage)
+    return
+  }
+
+  //判断有没有数据
+  data.route.forEach((v: any) => {
+    router.addRoute({
+      path: v.path,
+      name: v.name,
+      //这儿不能使用@
+      component: () => import(`@/views/${v.component}`)
+    })
+    router.push('/index')
+  })
+
+  console.log(router.getRoutes());
+
+}
+
 </script>
 
 <style lang='less' >
