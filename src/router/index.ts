@@ -9,11 +9,11 @@ const router = createRouter({
   routes: [//配置信息
     {
       path: '/',
-      component: () => import('@/views/Login.vue')
+      component: () => import('../views/Login.vue')
     },
     {
       path: '/index',
-      component: () => import('@/views/index.vue')
+      component: () => import('../views/index.vue')
     }
   ]
 })

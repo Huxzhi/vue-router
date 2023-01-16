@@ -1,6 +1,7 @@
 <template>
-
+  <!-- <loadingBar></loadingBar> 这里只是看看效果，最好是放到 全局导航守卫-后置守卫 !!!-->
   <div class="login">
+
     <el-form ref="form" :rules="rules" :model="formInline" class="demo-form-inline">
       <el-form-item prop="user" label="账号：">
         <el-input v-model="formInline.user" placeholder="请输入账号" />
@@ -20,7 +21,7 @@ import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import router from '../router';
 import { ElMessage, FormRules, FormInstance } from 'element-plus'
-
+import loadingBar from '../components/loadingBar.vue';
 
 const formInline = reactive({
   user: '',
