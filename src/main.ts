@@ -22,6 +22,8 @@ const whiteList = ['/']
 //全局前置守卫
 router.beforeEach((to, from, next) => {
 
+  console.log(to);
+  document.title = to.meta.title
   Vnode.component?.exposed?.startLoading() //loadingBar
 
   let token = localStorage.getItem('token')
