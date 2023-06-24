@@ -3,6 +3,12 @@
 跟着小满zs 的 [CSDN文章](https://blog.csdn.net/qq1195566313/category_11696205.html) 和 [B站视频](https://www.bilibili.com/video/BV1dS4y1y7vd?p=77) 学习，所记下的笔记和代码，供自己思考和查询
 
 
+推荐阅读： 
+- 官方文档： https://router.vuejs.org/zh/guide/
+- 《前端工程化：基于 Vue.js 3.0 的设计与实践》 https://vue3.chengpeiquan.com/router.html
+- 个人博客 [vue3-router4](https://huxzhi.github.io/code/vue/vue3-router4/00-%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%AF%E7%94%B1.html)
+
+配套文档： 
 
 0. [什么是路由](doc/00-什么是路由.md)
 1. [安装](doc/01-安装.md)
